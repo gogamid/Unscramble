@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import com.example.unscramble.GameViewModel
 import com.example.unscramble.R
 import com.example.unscramble.data.MAX_NO_OF_WORDS
 import com.example.unscramble.data.SCORE_INCREASE
@@ -12,11 +14,13 @@ import com.example.unscramble.data.allWordsList
 import com.example.unscramble.databinding.GameFragmentBinding
 
 class GameFragment : Fragment() {
+  private val viewModel: GameViewModel by viewModels()
   private var score = 0
   private var currentWordCount = 0
   private var currentScrambledWord = "test"
 
   private lateinit var binding: GameFragmentBinding
+
 
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?,
