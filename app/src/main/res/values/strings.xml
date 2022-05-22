@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Unscramble</string>
+    <string name="instruction_text">Unscramble the word using all the letters.</string>
+    <string name="input_hint">Enter your word</string>
+    <string name="skip">Skip</string>
+    <string name="submit">Submit</string>
+    <string name="words">%s of 10 words</string>
+    <string name="score_string">SCORE: %s</string>
+</resources>
