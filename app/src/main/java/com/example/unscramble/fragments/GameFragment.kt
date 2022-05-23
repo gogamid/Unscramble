@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import com.example.unscramble.GameViewModel
 import com.example.unscramble.R
@@ -23,7 +24,7 @@ class GameFragment : Fragment() {
     inflater: LayoutInflater, container: ViewGroup?,
     savedInstanceState: Bundle?
   ): View {
-    binding = GameFragmentBinding.inflate(inflater, container, false)
+    binding = DataBindingUtil.inflate(inflater, R.layout.game_fragment, container, false)
     return binding.root
   }
 
