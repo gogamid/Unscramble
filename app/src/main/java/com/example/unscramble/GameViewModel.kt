@@ -7,15 +7,14 @@ import com.example.unscramble.data.allWordsList
 
 class GameViewModel : ViewModel() {
   private var _score = 0
-  private var _currentWordCount = 0
-  private lateinit var _currentScrambledWord: String
-
   val score: Int
     get() = _score
 
+  private var _currentWordCount = 0
   val currentWordCount: Int
     get() = _currentWordCount
 
+  private lateinit var _currentScrambledWord: String
   val currentScrambledWord: String
     get() = _currentScrambledWord
 
