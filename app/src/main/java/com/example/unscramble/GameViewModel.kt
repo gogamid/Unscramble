@@ -42,7 +42,6 @@ class GameViewModel : ViewModel() {
       _currentWordCount.value = (_currentWordCount.value)?.inc()
       wordsList.add(currentWord)
     }
-    Log.d("word", currentWord)
   }
 
   /*

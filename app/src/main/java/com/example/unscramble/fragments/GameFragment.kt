@@ -1,7 +1,6 @@
 package com.example.unscramble.fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +10,6 @@ import androidx.fragment.app.viewModels
 import com.example.unscramble.GameViewModel
 import com.example.unscramble.R
 import com.example.unscramble.data.MAX_NO_OF_WORDS
-import com.example.unscramble.data.allWordsList
 import com.example.unscramble.databinding.GameFragmentBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
@@ -69,15 +67,6 @@ class GameFragment : Fragment() {
     } else {
       showFinalScoreDialog()
     }
-  }
-
-  /*
-   * Gets a random word for the list of words and shuffles the letters in it.
-   */
-  private fun getNextScrambledWord(): String {
-    val tempWord = allWordsList.random().toCharArray()
-    tempWord.shuffle()
-    return String(tempWord)
   }
 
   /*
