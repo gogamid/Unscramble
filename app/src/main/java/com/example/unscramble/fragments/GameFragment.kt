@@ -1,5 +1,6 @@
 package com.example.unscramble.fragments
 
+import android.os.Build.VERSION_CODES.M
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import com.example.unscramble.data.MAX_NO_OF_WORDS
 import com.example.unscramble.data.SCORE_INCREASE
 import com.example.unscramble.data.allWordsList
 import com.example.unscramble.databinding.GameFragmentBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class GameFragment : Fragment() {
   private val viewModel: GameViewModel by viewModels()
@@ -45,6 +47,11 @@ class GameFragment : Fragment() {
   * Displays the next scrambled word.
   */
   private fun onSubmitWord() {
+    if (viewModel.nextWord()) {
+      updateNextWordOnScreen()
+    } else {
+      showFinalScoreDialog()
+    }
   }
 
   /*
@@ -97,5 +104,22 @@ class GameFragment : Fragment() {
    */
   private fun updateNextWordOnScreen() {
     binding.word.text = viewModel.currentScrambledWord
+  }
+
+  /*
+* Creates and shows an AlertDialog with the final score.
+*/
+  private fun showFinalScoreDialog() {
+    MaterialAlertDialogBuilder(requireContext())
+      .setTitle(getString(R.string.congratulations))
+      .setMessage(getString(R.string.you_scored, viewModel.score))
+      .setCancelable(false)
+      .setNegativeButton(getString(R.string.exit)) { _, _ ->
+        exitGame()
+      }
+      .setPositiveButton(getString(R.string.play_again)) { _, _ ->
+        restartGame()
+      }
+      .show()
   }
 }
