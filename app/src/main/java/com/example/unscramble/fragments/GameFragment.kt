@@ -40,20 +40,6 @@ class GameFragment : Fragment() {
     // Setup a click listener for the Submit and Skip buttons.
     binding.submitBtn.setOnClickListener { onSubmitWord() }
     binding.skipBtn.setOnClickListener { onSkipWord() }
-
-    // Observe the scrambledCharArray LiveData, passing in the LifecycleOwner and the observer.
-    viewModel.currentScrambledWord.observe(viewLifecycleOwner) { newWord ->
-      binding.word.text = newWord
-    }
-
-    viewModel.score.observe(viewLifecycleOwner) { score ->
-      binding.score.text = getString(R.string.score_string, score)
-    }
-
-    viewModel.currentWordCount.observe(viewLifecycleOwner) { wordCount ->
-      Log.d("word", wordCount.toString())
-      binding.countWord.text = getString(R.string.words, wordCount, MAX_NO_OF_WORDS)
-    }
   }
 
   /*
