@@ -31,6 +31,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:text="@{@string/words(gameViewModel.currentWordCount, maxNoOfWords)}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="1 of 10 words" />
@@ -42,6 +43,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:text="@{@string/score_string(gameViewModel.score)}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="SCORE: 0" />
@@ -50,9 +52,10 @@
                 android:id="@+id/word"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="@dimen/default_margin"
+                android:layout_marginBottom="@dimen/default_margin"
                 android:text="@{gameViewModel.currentScrambledWord}"
-                android:textSize="48sp"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/count_word"
@@ -64,17 +67,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="@string/instruction_text"
+                android:textSize="17sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/word" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_layout"
+                style="@style/Widget.Unscramble.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="@dimen/default_margin"
                 android:layout_marginEnd="20dp"
+                android:hint="@string/input_hint"
+                app:errorIconDrawable="@drawable/ic_error"
+                app:helperTextTextAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/instruction">
@@ -83,14 +91,18 @@
                     android:id="@+id/edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/input_hint" />
+                    android:inputType="textPersonName|textNoSuggestions"
+                    android:maxLines="1" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/skip_btn"
-                android:layout_width="wrap_content"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_padding"
                 android:layout_marginTop="50dp"
+                android:layout_marginEnd="@dimen/default_padding"
                 android:text="@string/skip"
                 app:layout_constraintEnd_toStartOf="@+id/submit_btn"
                 app:layout_constraintStart_toStartOf="parent"
@@ -98,9 +110,11 @@
 
             <Button
                 android:id="@+id/submit_btn"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_padding"
                 android:layout_marginTop="50dp"
+                android:layout_marginEnd="@dimen/default_padding"
                 android:text="@string/submit"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/skip_btn"
